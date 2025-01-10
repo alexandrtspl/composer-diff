@@ -1,0 +1,14 @@
+name: "Composer Diff Action"
+description: "Run ion-bazan/composer-diff and manage PR comment about the diff"
+inputs:
+    github-token:
+        description: "GitHub token to interact with the API"
+        required: true
+permissions:
+    contents: read
+    pull-requests: write
+runs:
+    using: docker
+    image: Dockerfile
+    args:
+        - ${{ inputs.github-token }}
